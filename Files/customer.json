@@ -1,2 +1,26 @@
-["1","2"
+[
+    {
+        "id": 2,
+        "name": "Wafa",
+        "age": 27,
+        "address": "Maghar"
+    },
+    {
+        "id": 2,
+        "name": "Wafa",
+        "age": 27,
+        "address": "Maghar"
+    },
+    {
+        "id": 2,
+        "name": "Wafa",
+        "age": 27,
+        "address": "Maghar"
+    },
+    {
+        "id": 3,
+        "name": "Amir is the best",
+        "age": 27,
+        "address": "HAHAHAHAAHA HELL"
+    }
 ]
