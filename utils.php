@@ -1,5 +1,14 @@
 <?php
 
+function load_random_file($file_path)
+{
+    $file = fopen($file_path, "r");
+    $content = fread($file, filesize($file_path));
+    fclose($file);
+    return $content;
+}
+
+
 function init_file($path)
 {
     $file = fopen($path . ".json", "w");
@@ -33,16 +42,20 @@ function append_to_file($path, $content)
 
 function find_in_file($path,$k,$v)
 {
-    
     $file = load_file($path);
     $found = false;
     foreach ($file as $key => $value) {
         if ($value[$k] == $v) {
             $found = true;
-            echo "Found";
+            echo "key - ".$k.", Value - ".$v." = Found";
             echo "<br>";
             echo json_encode($value, JSON_PRETTY_PRINT);
             echo "<br>";
         }
+    }
+    if (!$found) {
+        echo "<br>";
+        echo "key - ".$k.", Value - ".$v." = Not Found";
+        echo "<br>";
     }
 }
