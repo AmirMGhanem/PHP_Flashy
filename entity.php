@@ -16,7 +16,7 @@ Class Entity
             init_file($this->_entity_path);
         }
 
-        echo "Entity created";
+        echo "Entity created  - " . $this->_entity_name . "     |    PATH - ". $this->_entity_path;
         echo "<br>";
     }
 
@@ -55,6 +55,11 @@ Class Entity
         find_in_file($this->_entity_path,$k,$v);
     }
 
+    public function delete()
+    {
+        delete_file($this->_entity_path);
+        echo "Entity ".$this->_entity_name." deleted"; 
+    }
 }
 
 

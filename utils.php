@@ -40,14 +40,14 @@ function append_to_file($path, $content)
 }
 
 
-function find_in_file($path,$k,$v)
+function find_in_file($path, $k, $v)
 {
     $file = load_file($path);
     $found = false;
     foreach ($file as $key => $value) {
         if ($value[$k] == $v) {
             $found = true;
-            echo "key - ".$k.", Value - ".$v." = Found";
+            echo "key - " . $k . ", Value - " . $v . " = Found";
             echo "<br>";
             echo json_encode($value, JSON_PRETTY_PRINT);
             echo "<br>";
@@ -55,7 +55,14 @@ function find_in_file($path,$k,$v)
     }
     if (!$found) {
         echo "<br>";
-        echo "key - ".$k.", Value - ".$v." = Not Found";
+        echo "key - " . $k . ", Value - " . $v . " = Not Found";
         echo "<br>";
     }
+}
+
+function delete_file($path)
+{
+    unlink($path . ".json");
+
+
 }
