@@ -4,7 +4,7 @@
 
 
 ## project structure 
-<img src="https://github.com/AmirMGhanem/PHP_Flashy/blob/main/readme_assets/Assessment_diagram.jpeg" alt="Diagram" style="width:200px;"/>
+<img src="https://github.com/AmirMGhanem/PHP_Flashy/blob/main/readme_assets/Assessment_diagram.jpeg" alt="Diagram"/>
 
 ## project Tree
 <img src="https://github.com/AmirMGhanem/PHP_Flashy/blob/main/readme_assets/ptree.png" alt="ptree" style="width:200px;"/>
