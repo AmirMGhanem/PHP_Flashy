@@ -1,5 +1,5 @@
 <?php
-
+require_once("utils.php");
 
 Class Entity
 {
@@ -14,10 +14,10 @@ Class Entity
         if($new_instance)
         {
             init_file($this->_entity_path);
+            echo "Entity created  - " . $this->_entity_name . "     |    PATH - ". $this->_entity_path;
+            echo "<br> <br>" ;
         }
 
-        echo "Entity created  - " . $this->_entity_name . "     |    PATH - ". $this->_entity_path;
-        echo "<br> <br>" ;
     }
 
     public function get_content(){
@@ -44,6 +44,7 @@ Class Entity
     public function load()
     {
         $content= load_file($this->_entity_path);
+        $this->set_content($content);
         return json_encode($content,JSON_PRETTY_PRINT);
         
     }
@@ -53,10 +54,19 @@ Class Entity
         append_to_file($this->_entity_path,$content);
     }
 
-    public function find_in_json($k,$v)
+    public function find_in_json($k, $v)
     {
-        find_in_file($this->_entity_path,$k,$v);
+        find_in_file($this->_entity_path, $k, $v);
     }
+
+    public function find_all($args)
+    {
+        
+        $result = find_all_in_file($this->_entity_path, $args);
+        return $result;
+        
+    }
+
 
     public function delete()
     {

@@ -1,21 +1,20 @@
 [
     {
-        "a": 1,
-        "b": 2,
-        "c": [
-            {
-                "web": "http://www.google.com"
-            },
-            {
-                "x": "x"
-            },
-            {
-                "email": "amirghanem95@gmail.com"
-            }
-        ]
+        "id": 1,
+        "name": "John",
+        "age": 30,
+        "car":"BMW"
     },
     {
-        "a": 3,
-        "b": 4
+        "id":2,
+        "name":"Mary",
+        "age":25,
+        "car":"Audi"
+    },
+    {
+        "id":3,
+        "name":"Peter",
+        "age":27,
+        "car":"Ford"
     }
 ]

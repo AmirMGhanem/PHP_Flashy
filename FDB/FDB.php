@@ -13,7 +13,7 @@ class FDB
         $files = array_diff($files, array('.', '..'));
         foreach ($files as $file) {
             // Load the current content of the files 
-            $content = load_random_file("Files/" . $file);
+            $content = $this->load_random_file("Files/" . $file);
             // get rid of the .json extension
             $file = explode(".", $file);
             $file = $file[0];
@@ -127,4 +127,15 @@ class FDB
             }
         }
     }
+
+
+
+    private function load_random_file($file_path)
+    {
+        $file = fopen($file_path, "r");
+        $content = fread($file, filesize($file_path));
+        fclose($file);
+        return $content;
+    }
+    
 }

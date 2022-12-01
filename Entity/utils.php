@@ -2,14 +2,6 @@
 require('fpdf/fpdf.php');
 
 
-function load_random_file($file_path)
-{
-    $file = fopen($file_path, "r");
-    $content = fread($file, filesize($file_path));
-    fclose($file);
-    return $content;
-}
-
 
 function init_file($path)
 {
@@ -17,22 +9,6 @@ function init_file($path)
     fwrite($file, json_encode([]));
     fclose($file);
 }
-
-function export_to_pdf($columns)
-{
-    $pdf = new FPDF();
-    $pdf->AddPage();
-    $pdf->SetFont('Arial','B',16);
-    $width_cell=array(10,30,20,30);
-    $pdf->SetFillColor(193,229,252);
-    $i=0;
-    foreach($columns as $col)
-    {
-        $pdf->Cell($width_cell[$i++],10,$col,1,0,true);
-    }
-    $pdf->Output("exported.pdf","F");
-}
-
 
 
 function load_file($path)
@@ -58,6 +34,28 @@ function append_to_file($path, $content)
 }
 
 
+
+function delete_file($path)
+{
+    unlink($path . ".json");
+}
+
+function find_all_in_file($path, $args)
+{
+    $file = load_file($path);
+    $result = [];
+    foreach ($file as $row)
+    {
+        $temp = [];
+        foreach ($args as $arg)
+        {
+            array_push($temp, $row[$arg]);
+        }
+        array_push($result, $temp);
+    }
+    return $result;
+}
+
 function find_in_file($path, $k, $v)
 {
     $file = load_file($path);
@@ -69,8 +67,7 @@ function find_in_file($path, $k, $v)
             echo "<br>";
             echo json_encode($value, JSON_PRETTY_PRINT);
             echo "<br>";
-        } 
-        
+        }
     }
 
     // find in array in nested value
@@ -80,9 +77,4 @@ function find_in_file($path, $k, $v)
         echo "key - " . $k . ", Value - " . $v . " = Not Found";
         echo "<br>";
     }
-}
-
-function delete_file($path)
-{
-    unlink($path . ".json");
 }
