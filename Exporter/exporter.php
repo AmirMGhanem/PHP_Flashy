@@ -3,13 +3,11 @@ require_once("utils.php");
 
 class exporter
 {
-    public $pdf;
     public function __construct()
     {
         header("Content-type: application/vnd.ms-excel");
         header("Content-Disposition: attachment; filename=exported_file.xls");
     }
-
     public function export_to_xls($entity, $args)
     {
         if (!($entity instanceof Entity)) {

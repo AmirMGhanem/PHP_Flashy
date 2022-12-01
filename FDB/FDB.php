@@ -59,6 +59,7 @@ class FDB
     {
         $this->entities[$new_name] = $this->entities[$old_name];
         unset($this->entities[$old_name]);
+        rename("Files/" . $old_name . ".json", "Files/" . $new_name . ".json");
     }
 
 
