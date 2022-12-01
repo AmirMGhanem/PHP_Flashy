@@ -1,7 +1,4 @@
 <?php
-require('fpdf/fpdf.php');
-
-
 
 function init_file($path)
 {

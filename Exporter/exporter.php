@@ -1,5 +1,4 @@
 <?php
-require_once('fpdf/fpdf.php');
 require_once("utils.php");
 
 class exporter
@@ -11,7 +10,7 @@ class exporter
         header("Content-Disposition: attachment; filename=exported_file.xls");
     }
 
-    public function export($entity, $args)
+    public function export_to_xls($entity, $args)
     {
         if (!($entity instanceof Entity)) {
             throw new Exception("Entity is not an instance of Entity");

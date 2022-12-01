@@ -1,20 +1,17 @@
 <?php
 include "Entity/entity.php";
-include "FDB/FDB.php";
 include "Exporter/exporter.php";
+include "FDB/FDB.php";
 
 
-// $fdb = new FDB();
-// print_r($fdb->get_entities());
-// $customer=$fdb->get_entity("customer");
-// echo "<br>";
-// echo "<br>";
-// $customer->find_in_json("x","x");
 
 
-// $result = export_to_pdf(["id","name","age","address"]);
 
-
-$e = new Entity("customer",False);
+// init the db instance (FDB - File Database)
+$db = new FDB();
+$entities = $db->get_entities();
+//$db->create_entity("orders");
+//$db->get_entity("orders")->append(['name' => 'amir', 'order' => 'iphone', 'price' => '6.5K']);
 $xls= new exporter();
-$xls->export($e,["name","age"]);
+$xls->export_to_xls($db->get_entity("orders"),["name","price"]);
+
