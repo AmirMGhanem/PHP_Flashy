@@ -8,6 +8,19 @@ function init_file($path)
 }
 
 
+function remove_data_from_file($path,$key,$value)
+{
+    $current=load_file($path);
+    foreach($current as $k=>$v)
+    {
+        if($v[$key]==$value)
+        {
+            unset($current[$k]);
+        }
+    }
+    save_file($path,array_values($current));
+}
+
 function load_file($path)
 {
     $file = json_decode(json_encode(json_decode(file_get_contents($path . ".json"), true)), true);

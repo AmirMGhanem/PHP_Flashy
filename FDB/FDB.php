@@ -122,7 +122,7 @@ class FDB
     {
         foreach ($this->entities as $key => $value) {
             if ($value->_entity_name == $name) {
-                $value->delete();
+                $value->delete_file();
                 unset($this->entities[$key]);
             }
         }

@@ -52,6 +52,7 @@ Class Entity
     public function append($content)
     {
         append_to_file($this->_entity_path,$content);
+        echo "Entity appended  - " . $this->_entity_name . "     |    PATH - ". $this->_entity_path;
     }
 
     public function find_in_json($k, $v)
@@ -67,13 +68,19 @@ Class Entity
         
     }
 
+    public function delete_data_from_file($key,$value)
+    {
+        try {
+        remove_data_from_file($this->_entity_path,$key,$value);
+        } catch (Exception $e) {
+            echo 'Caught exception: ',  $e->getMessage(), "\n";
+        }
+    }
 
-    public function delete()
+
+    public function delete_file()
     {
         delete_file($this->_entity_path);
         echo "Entity ".$this->_entity_name." deleted"; 
     }
 }
-
-
-?>

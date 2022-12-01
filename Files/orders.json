@@ -1,11 +1,6 @@
 [
     {
         "name": "amir",
-        "order": "airpods",
-        "price": "1000"
-    },
-    {
-        "name": "amir",
         "order": "iphone",
         "price": "6.5K"
     }
