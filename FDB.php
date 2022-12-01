@@ -102,17 +102,16 @@ class FDB
      * @param  mixed $name
      * @return array
      */
+    // return entity
     public function get_entity($name)
     {
-        foreach ($this->entities as $key => $value) {
-            if ($value->_entity_name == $name) {
-                return $value;
-            }
+        foreach ($this->entities as $entity) {
+            if ($entity->_entity_name == $name)
+                return $entity;
         }
     }
 
 
-        
     /**
      * remove_entity
      * description : remove the entity by name

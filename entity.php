@@ -17,9 +17,12 @@ Class Entity
         }
 
         echo "Entity created  - " . $this->_entity_name . "     |    PATH - ". $this->_entity_path;
-        echo "<br>";
+        echo "<br> <br>" ;
     }
 
+    public function get_content(){
+        return $this->_entity_content;
+    }
 
 
     public function set_name($name)
